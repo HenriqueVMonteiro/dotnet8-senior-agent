@@ -1,0 +1,38 @@
+{
+  "name": "dotnet8-senior-agent",
+  "version": "1.1.0",
+  "description": "Agente de revisão de código .NET 8 com base de conhecimento destilada de cinco livros e 26 itens verificados por execução real",
+  "bin": {
+    "dotnet8-senior-agent": "bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "agent/",
+    "base/",
+    "validacao/",
+    "docs/",
+    "scripts/",
+    "README.md",
+    "NOTICE.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "dotnet",
+    "csharp",
+    "code-review",
+    "ai-agent",
+    "claude-code",
+    "omp",
+    "knowledge-base"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenriqueVMonteiro/dotnet8-senior-agent.git"
+  },
+  "private": true
+}
