@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.2.0
+
+### Adicionado
+- Instalação por `npx skills add HenriqueVMonteiro/dotnet8-senior-agent`, via
+  [vercel-labs/skills](https://github.com/vercel-labs/skills) — 77 agentes
+  suportados, repo privado com a credencial git existente, `npx skills update`
+- `skills/dotnet8-senior/SKILL.md`: gate de carga da base, regras duras e tabela
+  de eixos, ~1,6k tokens
+
+### Alterado
+- A base vive em `skills/dotnet8-senior/base/` e é referenciada por caminho
+  **relativo**. O `skills add` leva o diretório inteiro, então nada precisa ser
+  reescrito no destino — verificado: os 8 arquivos chegam intactos
+
+### Corrigido
+- `agent/dotnet8-senior.md` apontava para `Livros_Agente/base/principios/`,
+  caminho que deixou de existir com o move. O instalador reescrevia na
+  instalação, mas a fonte no repo mentia para quem lesse ou rodasse
+  `--from-clone`
+
+## 1.1.1
+
+### Corrigido
+- `.gitignore` continha `bin/` para ignorar saída de build do .NET e capturou
+  também o `bin/install.js` do Node. O `git add -A` pulou o arquivo em silêncio,
+  o repo subiu com `package.json` apontando para um bin inexistente, e o
+  `npx github:...` falhava com *"'dotnet8-senior-agent' não é reconhecido como um
+  comando"*. Padrões agora são específicos: `**/[Bb]in/[Dd]ebug/`,
+  `**/[Bb]in/[Rr]elease/`, `**/obj/`
+
+## 1.1.0
+
+### Adicionado
+- Instalador Node de uma linha, zero dependências, multi-CLI
+  (`npx github:HenriqueVMonteiro/dotnet8-senior-agent`)
+- README reescrito com os sete avisos importantes no corpo, não em doc separado
+
+### Corrigido
+- A carga da base virou **gate na primeira ação** em vez de instrução no rodapé
+  (linha 164 de 215). Um agente despachado com contrato mecânico pulava a carga;
+  os testes anteriores mascaravam o defeito porque reforçavam a instrução na task
+
+### Removido
+- `scripts/install.py` — duas implementações do mesmo instalador divergem
+
 ## 1.0.0
 
 Primeira versão pública.

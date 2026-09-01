@@ -1,0 +1,8 @@
+# A base é lida, grepada e hasheada por agentes. Fim de linha estável em todas as
+# plataformas evita que um checkout no Windows produza bytes diferentes do Linux
+# e faça um diff de verificação parecer divergência de conteúdo.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.pdf binary
