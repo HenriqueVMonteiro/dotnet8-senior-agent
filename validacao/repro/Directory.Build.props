@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <!-- ALVO DE COMPILACAO TRAVADO. Nenhum repro pode sobrescrever. -->
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>repro</AssemblyName>
+    <RootNamespace>Repro</RootNamespace>
+    <!-- Microsoft.Data.SqlClient nao suporta Globalization Invariant Mode. -->
+    <InvariantGlobalization>false</InvariantGlobalization>
+    <ServerGarbageCollection>false</ServerGarbageCollection>
+    <RestorePackagesPath>$(MSBuildThisFileDirectory)../../work/nuget</RestorePackagesPath>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+  </PropertyGroup>
+</Project>

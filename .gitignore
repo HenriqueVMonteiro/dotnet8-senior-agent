@@ -1,0 +1,22 @@
+# build .NET
+bin/
+obj/
+*.user
+*.suo
+
+# prompt montado (gerado)
+prompt.md
+
+# estado local do pipeline
+estado.json
+work/
+
+# fontes com copyright — NUNCA versionar
+*.pdf
+*.epub
+
+# SO / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
