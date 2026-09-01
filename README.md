@@ -80,6 +80,12 @@ faz. Não vou chutar."* — e propôs o teste observacional.
 
 ---
 
+> **Este repositório é privado.** Os comandos abaixo clonam usando a credencial
+> git de quem os executa — Git Credential Manager, `gh` autenticado ou chave SSH.
+> Sem acesso concedido ao repo, eles falham com erro de autenticação, não com
+> 404. Verificado: um clone sem credencial retorna
+> `could not read Username for 'https://github.com'`.
+
 ## Instalação
 
 Duas rotas. Elas entregam coisas diferentes — escolha pelo que você quer.
@@ -93,7 +99,7 @@ npx skills add HenriqueVMonteiro/dotnet8-senior-agent
 Instala via [`npx skills`](https://github.com/vercel-labs/skills), o CLI do
 ecossistema aberto de skills. Funciona em Claude Code, Codex, Cursor, OpenCode,
 Zed, Cline, Warp e [73 outros](https://github.com/vercel-labs/skills#supported-agents).
-Funciona **em repo privado**, usando a credencial git que você já tem.
+Resolve repo privado com a credencial git de quem roda — ver o aviso acima.
 
 A base viaja dentro da skill e é referenciada por caminho relativo — nada é
 reescrito, nada aponta para fora. `npx skills update` atualiza depois.
