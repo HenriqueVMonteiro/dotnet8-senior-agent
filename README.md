@@ -15,6 +15,12 @@ por execução real, não por opinião de modelo.
 ![Verificados](https://img.shields.io/badge/verificados-26-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
+[![skills.sh](https://www.skills.sh/b/HenriqueVMonteiro/dotnet8-senior-agent)](https://www.skills.sh/HenriqueVMonteiro/dotnet8-senior-agent)
+
+```bash
+npx skills add HenriqueVMonteiro/dotnet8-senior-agent
+```
+
 </div>
 
 ---
