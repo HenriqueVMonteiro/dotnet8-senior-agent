@@ -1,8 +1,12 @@
-# build .NET
-bin/
-obj/
+# build .NET — específico, para não engolir bin/ do Node
+**/[Bb]in/[Dd]ebug/
+**/[Bb]in/[Rr]elease/
+**/obj/
 *.user
 *.suo
+
+# Node
+node_modules/
 
 # prompt montado (gerado)
 prompt.md
