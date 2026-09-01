@@ -1,6 +1,6 @@
 {
   "name": "dotnet8-senior-agent",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Agente de revisão de código .NET 8 com base de conhecimento destilada de cinco livros e 26 itens verificados por execução real",
   "bin": {
     "dotnet8-senior-agent": "bin/install.js"
@@ -8,9 +8,9 @@
   "files": [
     "bin/",
     "agent/",
-    "base/",
-    "validacao/",
+    "skills/",
     "docs/",
+    "validacao/",
     "scripts/",
     "README.md",
     "NOTICE.md",

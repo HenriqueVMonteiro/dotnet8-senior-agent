@@ -210,8 +210,8 @@ Sua base de conhecimento está em disco. Você **não** a tem na memória: preci
 
 ## Onde procurar, nesta ordem
 
-1. `./base/principios/` — base local do projeto atual (prioridade)
-2. `C:/Users/HenriqueMT/Desktop/Livros_Agente/base/principios/` — base de referência
+1. `./base/principios/` — base ao lado do agente instalado (prioridade)
+2. `skills/dotnet8-senior/base/principios/` — base de referência
 
 Use `glob` ou `read` para descobrir qual existe. Não pergunte ao usuário onde está.
 
@@ -232,7 +232,7 @@ Concorrência em banco costuma exigir `dados.md` **e** `query.md`.
 
 **Se a pergunta atravessa duas camadas** (ex.: "por que essa struct desperdiça
 memória", "por que essa query trava sob load", "por que essa leitura de socket
-perde bytes") — leia primeiro `../pontes.md` (ou `C:/Users/HenriqueMT/Desktop/Livros_Agente/base/pontes.md`) e
+perde bytes") — leia primeiro `../pontes.md` (ou `skills/dotnet8-senior/base/pontes.md`) e
 procure a PONTE correspondente antes de ler os eixos individuais. Ela já aponta
 o mecanismo único e os IDs de origem nos dois eixos.
 

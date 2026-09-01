@@ -23,6 +23,9 @@ const path = require("node:path");
 const os = require("node:os");
 
 const PKG = path.resolve(__dirname, "..");
+// A base vive dentro da skill, para que `npx skills add` a leve junto e o
+// SKILL.md possa referenciá-la por caminho relativo.
+const SKILL = path.join(PKG, "skills", "dotnet8-senior");
 const HOME = os.homedir();
 const STABLE = path.join(HOME, ".dotnet8-senior");
 
@@ -127,7 +130,7 @@ function main() {
     log(`erro: ${src} não encontrado`);
     return 1;
   }
-  const faltando = OBRIGATORIOS.filter((f) => !fs.existsSync(path.join(PKG, f)));
+  const faltando = OBRIGATORIOS.filter((f) => !fs.existsSync(path.join(SKILL, f)));
   if (faltando.length) {
     log("erro: base incompleta, faltam:");
     faltando.forEach((f) => log(`  ${f}`));
@@ -138,13 +141,13 @@ function main() {
   // que o npm apaga — copiar para um diretório estável é obrigatório.
   let baseDir;
   if (fromClone) {
-    baseDir = PKG;
+    baseDir = SKILL;
     log(`base: usando o clone em ${baseDir}`);
   } else {
     baseDir = STABLE;
     if (!check) {
       fs.rmSync(path.join(STABLE, "base"), { recursive: true, force: true });
-      copiarDir(path.join(PKG, "base"), path.join(STABLE, "base"));
+      copiarDir(path.join(SKILL, "base"), path.join(STABLE, "base"));
       log(`base copiada para ${path.join(STABLE, "base")}`);
     } else {
       log(`base seria copiada para ${path.join(STABLE, "base")}`);

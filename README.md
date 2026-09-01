@@ -82,12 +82,45 @@ faz. Não vou chutar."* — e propôs o teste observacional.
 
 ## Instalação
 
+Duas rotas. Elas entregam coisas diferentes — escolha pelo que você quer.
+
+### Como skill — 77 agentes suportados
+
+```bash
+npx skills add HenriqueVMonteiro/dotnet8-senior-agent
+```
+
+Instala via [`npx skills`](https://github.com/vercel-labs/skills), o CLI do
+ecossistema aberto de skills. Funciona em Claude Code, Codex, Cursor, OpenCode,
+Zed, Cline, Warp e [73 outros](https://github.com/vercel-labs/skills#supported-agents).
+Funciona **em repo privado**, usando a credencial git que você já tem.
+
+A base viaja dentro da skill e é referenciada por caminho relativo — nada é
+reescrito, nada aponta para fora. `npx skills update` atualiza depois.
+
+```bash
+npx skills add HenriqueVMonteiro/dotnet8-senior-agent -g          # global, todos os projetos
+npx skills add HenriqueVMonteiro/dotnet8-senior-agent -a codex    # só um agente
+npx skills update dotnet8-senior                                  # atualizar
+```
+
+Uma skill é uma capacidade que **o agente que já está rodando** carrega quando a
+tarefa casa com a descrição. É a rota mais simples, e a única que funciona fora
+de OMP e Claude Code.
+
+### Como subagente despachável — OMP e Claude Code
+
 ```bash
 npx github:HenriqueVMonteiro/dotnet8-senior-agent
 ```
 
-Detecta os CLIs instalados, traduz o formato para cada um e copia a base para
-`~/.dotnet8-senior/base`. Sem clone, sem dependência, sem Python.
+Instala como **agente separado**, com modelo e ferramentas próprias, que você
+despacha por nome e roda em paralelo com outros. É o que permite `spawna 3
+dotnet8-senior, um em src/Pedidos, um em src/Estoque, um nas migrations`.
+
+Detecta os CLIs instalados, traduz o frontmatter de cada um e copia a base para
+`~/.dotnet8-senior/base` — necessário porque o npx roda de um cache temporário
+que o npm apaga. Sem clone, sem dependência, sem Python.
 
 <details>
 <summary>Opções</summary>
@@ -232,12 +265,14 @@ pedem C# 13.
 ## Estrutura do projeto
 
 ```
-agent/dotnet8-senior.md      definição do agente (~2,4k tokens)
-base/
-  nucleo.md                  regras duras + ordem de diagnóstico
-  principios/*.md            os cinco eixos, 90 itens cada
-  pontes.md                  15 sínteses cruzadas
-  referencia/dados.md        camada B: armadilhas com código antes/depois
+skills/dotnet8-senior/       a skill — é isto que `npx skills add` instala
+  SKILL.md                   gate de carga + regras duras (~1,6k tokens)
+  base/
+    nucleo.md                regras duras + ordem de diagnóstico
+    principios/*.md          os cinco eixos, 90 itens cada
+    pontes.md                15 sínteses cruzadas
+    referencia/dados.md      camada B: armadilhas com código antes/depois
+agent/dotnet8-senior.md      o subagente despachável (~2,4k tokens)
 validacao/
   casos.md                   suíte de regressão
   repro/                     9 experimentos executáveis
@@ -245,7 +280,7 @@ docs/
   METODOLOGIA.md             como a base foi construída
   LIMITACOES.md              o que não confiar, e por quê
   RED-TEAM.md                165 problemas do ataque adversarial
-bin/install.js               instalador multi-CLI, zero dependências
+bin/install.js               instalador do subagente, zero dependências
 scripts/montar.py            monta prompt.md para chat web / API
 ```
 
